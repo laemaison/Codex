@@ -104,15 +104,15 @@
 
 /* Banner base setup */
 #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  position: relative !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
   min-height: 85vh !important;
   background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 /* Overlay tint */
@@ -125,18 +125,22 @@
 
 /* Container positioning — bottom-left with offset */
 #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_container {
-  position: absolute;
-  bottom: 3rem;
-  left: 3rem;
-  z-index: 2;
-  max-width: 720px;
-  margin: 0;
-  padding: 0;
+  position: absolute !important;
+  bottom: 3rem !important;
+  left: 3rem !important;
+  right: auto !important;
+  top: auto !important;
+  z-index: 2 !important;
+  max-width: 720px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
 }
 
 #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_container.sc-left {
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  display: block !important;
 }
 
 /* Content wrapper — semi-transparent background, fade-in animation */
@@ -215,28 +219,35 @@
   }
 
   #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_container {
+    position: absolute !important;
+    bottom: 2rem !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
     height: auto !important;
     min-height: auto !important;
-    margin: 0 1rem 2rem 1rem;
-    max-width: calc(100% - 2rem);
+    margin: 0 1rem !important;
+    max-width: calc(100% - 2rem) !important;
+    transform: none !important;
   }
 
   #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_container.sc-left {
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: center !important;
+    align-items: flex-end !important;
+    display: flex !important;
   }
 
   #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_content {
-    text-align: center;
+    text-align: center !important;
   }
 
   #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_heading {
-    font-size: 2rem;
+    font-size: 2rem !important;
   }
 
   #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_cta {
-    width: 100%;
-    max-width: 300px;
+    width: 100% !important;
+    max-width: 300px !important;
   }
 }
 
