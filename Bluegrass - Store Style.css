@@ -168,7 +168,7 @@
   #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_content {
     position: relative;
     z-index: 2;
-    max-width: 720px !important;
+    max-width: 600px !important;
     width: auto !important;
     margin: 0 !important;
     padding: 2rem 3rem;
