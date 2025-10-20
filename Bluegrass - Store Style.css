@@ -1,458 +1,477 @@
-/* ===================================================== */
-/* Bluegrass Community & Technical College — Store Style */
-/* Updated: Oct 2025 — All positioning in Store CSS     */
-/* ===================================================== */
+  /* ===================================================== */
+  /* Bluegrass Community & Technical College — Store Style */
+  /* Updated: Oct 2025 — All positioning in Store CSS     */
+  /* ===================================================== */
 
 
-/* ===================================================== */
-/* HIDE PRE-FOOTER                                       */
-/* ===================================================== */
-#SC-PreFooter {
-  display: none !important;
-}
-
-
-/* ===================================================== */
-/* SECOND-TIER NAVIGATION BAR — Blue + Gold (ADA Safe)   */
-/* ===================================================== */
-@media only screen and (min-width: 768px) {
-  .SC-Navbar {
-    background-color: var(--sc-color-primary) !important;
-    color: #ffffff !important;
-    border-top: 4px solid hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1) !important;
-    transition: background-color 0.3s ease;
+  /* ===================================================== */
+  /* HIDE PRE-FOOTER                                       */
+  /* ===================================================== */
+  #SC-PreFooter {
+    display: none !important;
   }
 
-  .SC-Navbar_inner {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 2rem !important;
+
+  /* ===================================================== */
+  /* SECOND-TIER NAVIGATION BAR — Blue + Gold (ADA Safe)   */
+  /* ===================================================== */
+  @media only screen and (min-width: 768px) {
+    .SC-Navbar {
+      background-color: var(--sc-color-primary) !important;
+      color: #ffffff !important;
+      border-top: 4px solid hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1) !important;
+      transition: background-color 0.3s ease;
+    }
+
+    .SC-Navbar_inner {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 2rem !important;
+    }
+
+    .SC-Navbar .SC-Menu_link {
+      position: relative;
+      color: #ffffff !important;
+      font-size: 1.125rem !important;
+      font-weight: 600 !important;
+      padding: 0.75rem 1.25rem !important;
+      text-decoration: none !important;
+      overflow: hidden;
+      letter-spacing: 0.25px;
+      transition: color 0.3s ease;
+    }
+
+    .SC-Navbar .SC-Menu_link::after {
+      content: "";
+      position: absolute;
+      bottom: 6px;
+      left: -100%;
+      width: 100%;
+      height: 3px;
+      background-color: hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1);
+      transition: left 0.3s ease;
+    }
+
+    .SC-Navbar .SC-Menu_link:hover::after,
+    .SC-Navbar .SC-Menu_link:focus::after {
+      left: 0;
+    }
+
+    .SC-Navbar .SC-Menu_link:hover,
+    .SC-Navbar .SC-Menu_link:focus {
+      color: hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1) !important;
+      outline: none;
+    }
+
+    .SC-Navbar .SC-Menu_link.is-active {
+      color: hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1) !important;
+      font-weight: 700 !important;
+    }
+
+    .SC-Navbar .SC-Menu_link.is-active::after {
+      left: 0;
+    }
+
+    .SC-Navbar .SC-Menu_link:focus-visible {
+      outline: 3px solid hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
   }
 
-  .SC-Navbar .SC-Menu_link {
-    position: relative;
-    color: #ffffff !important;
-    font-size: 1.125rem !important;
-    font-weight: 600 !important;
-    padding: 0.75rem 1.25rem !important;
-    text-decoration: none !important;
-    overflow: hidden;
-    letter-spacing: 0.25px;
-    transition: color 0.3s ease;
+  @media only screen and (max-width: 767px) {
+    .SC-Menu.tier1.dropdown {
+      background-color: var(--sc-color-primary) !important;
+      color: #ffffff !important;
+    }
+
+    .SC-Menu.tier1.dropdown .SC-Menu_link {
+      font-size: 1rem !important;
+    }
+
+    .SC-Menu.tier1.dropdown .SC-Menu_link:hover,
+    .SC-Menu.tier1.dropdown .SC-Menu_link:focus {
+      background-color: hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1) !important;
+      color: var(--sc-shade-darkest) !important;
+    }
   }
 
-  .SC-Navbar .SC-Menu_link::after {
-    content: "";
-    position: absolute;
-    bottom: 6px;
-    left: -100%;
-    width: 100%;
-    height: 3px;
-    background-color: hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1);
-    transition: left 0.3s ease;
+
+  /* ===================================================== */
+  /* HERO SECTION — Complete Bluegrass Styling            */
+  /* ===================================================== */
+
+  /* Wrapper resets */
+  #SC-ContentBlock-bluegrass-homepage-hero-image,
+  #SC-ContentBlock-bluegrass-homepage-hero-image.SC-ContentBlock,
+  #SC-ContentBlock-bluegrass-homepage-hero-image.SC-ImageTextOverlay {
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  .SC-Navbar .SC-Menu_link:hover::after,
-  .SC-Navbar .SC-Menu_link:focus::after {
-    left: 0;
-  }
-
-  .SC-Navbar .SC-Menu_link:hover,
-  .SC-Navbar .SC-Menu_link:focus {
-    color: hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1) !important;
-    outline: none;
-  }
-
-  .SC-Navbar .SC-Menu_link.is-active {
-    color: hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1) !important;
-    font-weight: 700 !important;
-  }
-
-  .SC-Navbar .SC-Menu_link.is-active::after {
-    left: 0;
-  }
-
-  .SC-Navbar .SC-Menu_link:focus-visible {
-    outline: 3px solid hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1);
-    outline-offset: 4px;
-    border-radius: 4px;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .SC-Menu.tier1.dropdown {
-    background-color: var(--sc-color-primary) !important;
-    color: #ffffff !important;
-  }
-
-  .SC-Menu.tier1.dropdown .SC-Menu_link {
-    font-size: 1rem !important;
-  }
-
-  .SC-Menu.tier1.dropdown .SC-Menu_link:hover,
-  .SC-Menu.tier1.dropdown .SC-Menu_link:focus {
-    background-color: hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1) !important;
-    color: var(--sc-shade-darkest) !important;
-  }
-}
-
-
-/* ===================================================== */
-/* HERO SECTION — Complete Bluegrass Styling            */
-/* ===================================================== */
-
-/* Banner base setup */
-#SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner {
-  position: relative !important;
-  display: flex !important;
-  align-items: flex-start !important;
-  justify-content: flex-start !important;
-  min-height: 85vh !important;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  overflow: hidden !important;
-}
-
-/* Overlay tint */
-#SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-  z-index: 1;
-}
-
-/* Container positioning — bottom-left with offset */
-#SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_container {
-  position: absolute !important;
-  bottom: 3rem !important;
-  left: 3rem !important;
-  right: auto !important;
-  top: auto !important;
-  z-index: 2 !important;
-  max-width: 720px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  transform: none !important;
-}
-
-#SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_container.sc-left {
-  justify-content: flex-start !important;
-  align-items: flex-start !important;
-  display: block !important;
-}
-
-/* Content wrapper — semi-transparent background, fade-in animation */
-#SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_content {
-  position: relative;
-  z-index: 2;
-  max-width: 720px !important;
-  width: auto !important;
-  margin: 0 !important;
-  padding: 2rem 3rem;
-  border-radius: 6px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #ffffff !important;
-  text-align: left;
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeInUp 1.2s ease-out 0.3s forwards;
-}
-
-/* Heading with yellow underline */
-#SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_heading {
-  font-size: 3.25rem;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 4px solid #e7a514;
-  color: #ffffff !important;
-}
-
-/* Subtitle text */
-#SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_subheading {
-  color: #ffffff !important;
-}
-
-/* CTA Button — Blue with yellow glow on hover */
-#SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_cta {
-  display: inline-block;
-  margin-top: 1.5rem;
-  background-color: var(--sc-color-primary) !important;
-  border: 0.125rem solid var(--sc-color-primary) !important;
-  border-radius: 6px !important;
-  color: #ffffff !important;
-  font-size: 1.125rem !important;
-  font-weight: 700 !important;
-  line-height: 1.55 !important;
-  padding: 0.78125rem 2rem !important;
-  text-align: center;
-  text-decoration: none !important;
-  width: 18.75rem !important;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease-out !important;
-}
-
-#SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_cta:hover,
-#SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_cta:focus {
-  background-color: #ffffff !important;
-  color: var(--sc-color-primary) !important;
-  border-color: var(--sc-color-primary) !important;
-  box-shadow: 0 0 12px rgba(231, 166, 20, 0.75);
-}
-
-/* Fade-in animation keyframes */
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(40px); }
-  60% { opacity: 0.8; transform: translateY(10px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-
-/* ===================================================== */
-/* MOBILE RESPONSIVE — Hero                              */
-/* ===================================================== */
-@media screen and (max-width: 768px) {
+  /* Banner base setup */
   #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner {
-    min-height: 65vh !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    min-height: 85vh !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    overflow: hidden !important;
   }
 
+  /* Overlay tint */
+  #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+  }
+
+  /* Container positioning — bottom-left with offset */
   #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_container {
     position: absolute !important;
-    bottom: 2rem !important;
-    left: 0 !important;
-    right: 0 !important;
+    bottom: 3rem !important;
+    left: 3rem !important;
+    right: auto !important;
     top: auto !important;
-    height: auto !important;
-    min-height: auto !important;
-    margin: 0 1rem !important;
-    max-width: calc(100% - 2rem) !important;
+    z-index: 2 !important;
+    max-width: 720px !important;
+    margin: 0 !important;
+    padding: 0 !important;
     transform: none !important;
   }
 
   #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_container.sc-left {
-    justify-content: center !important;
-    align-items: flex-end !important;
-    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    display: block !important;
   }
 
+  /* Global fallback selector for image banners */
+  .SC-Banner_container.sc-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+    z-index: 2;
+  }
+
+  /* Content wrapper — semi-transparent background, fade-in animation */
   #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_content {
-    text-align: center !important;
+    position: relative;
+    z-index: 2;
+    max-width: 720px !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 2rem 3rem;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff !important;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 1.2s ease-out 0.3s forwards;
   }
 
+  /* Heading with yellow underline */
   #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_heading {
-    font-size: 2rem !important;
+    font-size: 3.25rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 4px solid #e7a514;
+    color: #ffffff !important;
   }
 
+  /* Subtitle text */
+  #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_subheading {
+    color: #ffffff !important;
+  }
+
+  /* CTA Button — Blue with yellow glow on hover */
   #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_cta {
-    width: 100% !important;
-    max-width: 300px !important;
+    display: inline-block;
+    margin-top: 1.5rem;
+    background-color: var(--sc-color-primary) !important;
+    border: 0.125rem solid var(--sc-color-primary) !important;
+    border-radius: 6px !important;
+    color: #ffffff !important;
+    font-size: 1.125rem !important;
+    font-weight: 700 !important;
+    line-height: 1.55 !important;
+    padding: 0.78125rem 2rem !important;
+    text-align: center;
+    text-decoration: none !important;
+    width: 18.75rem !important;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease-out !important;
   }
-}
+
+  #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_cta:hover,
+  #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_cta:focus {
+    background-color: #ffffff !important;
+    color: var(--sc-color-primary) !important;
+    border-color: var(--sc-color-primary) !important;
+    box-shadow: 0 0 12px rgba(231, 166, 20, 0.75);
+  }
+
+  /* Fade-in animation keyframes */
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    60% { opacity: 0.8; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
 
 
-/* ===================================================== */
-/* CTA & BUTTON GLOW BASELINE                            */
-/* ===================================================== */
-.sc-button,
-.SC-Button-primary,
-.SC-Banner_cta {
-  position: relative;
-  z-index: 1;
-  border-radius: 6px;
-  overflow: hidden;
-  transition: box-shadow 0.3s ease-out;
-}
+  /* ===================================================== */
+  /* MOBILE RESPONSIVE — Hero                              */
+  /* ===================================================== */
+  @media screen and (max-width: 768px) {
+    #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner {
+      min-height: 65vh !important;
+    }
 
-.sc-button:hover,
-.SC-Button-primary:hover,
-.SC-Banner_cta:hover {
-  box-shadow: 0 0 14px rgba(231, 166, 20, 0.75);
-}
+    #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_container {
+      position: absolute !important;
+      bottom: 2rem !important;
+      left: 0 !important;
+      right: 0 !important;
+      top: auto !important;
+      height: auto !important;
+      min-height: auto !important;
+      margin: 0 1rem !important;
+      max-width: calc(100% - 2rem) !important;
+      transform: none !important;
+    }
+
+    #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_container.sc-left {
+      justify-content: center !important;
+      align-items: flex-end !important;
+      display: flex !important;
+    }
+
+    #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_content {
+      text-align: center !important;
+    }
+
+    #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_heading {
+      font-size: 2rem !important;
+    }
+
+    #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_cta {
+      width: 100% !important;
+      max-width: 300px !important;
+    }
+  }
 
 
-/* ===================================================== */
-/* PRODUCT / CATEGORY CARD HOVER EFFECTS                 */
-/* ===================================================== */
-.SC-CardGrid_item .SC-ImageLink {
-  display: block;
-  border: 4px solid transparent;
-  border-radius: 6px;
-  overflow: hidden;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
+  /* ===================================================== */
+  /* CTA & BUTTON GLOW BASELINE                            */
+  /* ===================================================== */
+  .sc-button,
+  .SC-Button-primary,
+  .SC-Banner_cta {
+    position: relative;
+    z-index: 1;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-out;
+  }
 
-.SC-CardGrid_item .SC-ImageLink:hover {
-  transform: scale(1.03);
-  border-color: hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
+  .sc-button:hover,
+  .SC-Button-primary:hover,
+  .SC-Banner_cta:hover {
+    box-shadow: 0 0 14px rgba(231, 166, 20, 0.75);
+  }
 
 
-/* ===================================================== */
-/* FOOTER STYLES                                         */
-/* ===================================================== */
-.sc-bg-primary { background-color: var(--sc-color-primary); }
+  /* ===================================================== */
+  /* PRODUCT / CATEGORY CARD HOVER EFFECTS                 */
+  /* ===================================================== */
+  .SC-CardGrid_item .SC-ImageLink {
+    display: block;
+    border: 4px solid transparent;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
 
-.Menu_image img,
-.SC-Menu_image img { width: 32px; height: 32px; }
+  .SC-CardGrid_item .SC-ImageLink:hover {
+    transform: scale(1.03);
+    border-color: hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
 
-.SC-Logo_image {
-  height: auto;
-  max-height: 100px;
-  max-width: 150px;
-  width: auto;
-}
 
-@media only screen and (min-width: 768px) {
-  .Logo_image, .SC-Logo_image {
+  /* ===================================================== */
+  /* FOOTER STYLES                                         */
+  /* ===================================================== */
+  .sc-bg-primary { background-color: var(--sc-color-primary); }
+
+  .Menu_image img,
+  .SC-Menu_image img { width: 32px; height: 32px; }
+
+  .SC-Logo_image {
+    height: auto;
     max-height: 100px;
     max-width: 150px;
+    width: auto;
   }
-}
 
-.SC-Menu_item {
-  text-align: center;
-}
+  @media only screen and (min-width: 768px) {
+    .Logo_image, .SC-Logo_image {
+      max-height: 100px;
+      max-width: 150px;
+    }
+  }
 
-.footer-cta-button > .SC-Menu_link {
-  background-color: var(--sc-color-primary);
-  border: 0.125rem solid var(--sc-color-primary);
-  border-radius: 6px;
-  color: #ffffff;
-  font-size: 1.125rem;
-  font-weight: 700;
-  padding: 0.78125rem 2rem;
-  display: inline-block;
-  width: 18.75rem;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
+  .SC-Menu_item {
+    text-align: center;
+  }
 
-.footer-cta-button > .SC-Menu_link:hover,
-.footer-cta-button > .SC-Menu_link:focus {
-  background-color: #ffffff;
-  color: var(--sc-color-primary);
-  border-color: var(--sc-color-primary);
-  box-shadow: 0 0 14px rgba(231, 166, 20, 0.75);
-}
+  .footer-cta-button > .SC-Menu_link {
+    background-color: var(--sc-color-primary);
+    border: 0.125rem solid var(--sc-color-primary);
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 700;
+    padding: 0.78125rem 2rem;
+    display: inline-block;
+    width: 18.75rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
 
-
-/* ===================================================== */
-/* IMAGE HOVER EFFECTS                                   */
-/* ===================================================== */
-img.SC-ImageBesideText_image {
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-img.SC-ImageBesideText_image:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 14px rgba(231, 166, 20, 0.75);
-}
+  .footer-cta-button > .SC-Menu_link:hover,
+  .footer-cta-button > .SC-Menu_link:focus {
+    background-color: #ffffff;
+    color: var(--sc-color-primary);
+    border-color: var(--sc-color-primary);
+    box-shadow: 0 0 14px rgba(231, 166, 20, 0.75);
+  }
 
 
-/* ===================================================== */
-/* FOOTER UPDATES — Layout & Spacing                     */
-/* ===================================================== */
-.SC-Menu.tier1 {
-  column-gap: 0px;
-}
-
-.SC-Menu_image {
-  padding: 0px 10px;
-}
-
-.SC-Logo {
-  padding: 0px;
-}
-
-.social-media-menu-items ul li a.SC-Menu_link {
-  display: none;
-}
-
-.SC-Menu_image:hover:after {
-  background-color: transparent;
-}
+  /* ===================================================== */
+  /* IMAGE HOVER EFFECTS                                   */
+  /* ===================================================== */
+  img.SC-ImageBesideText_image {
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  img.SC-ImageBesideText_image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 14px rgba(231, 166, 20, 0.75);
+  }
 
 
-/* ===================================================== */
-/* REFUND FORM VALIDATION                                */
-/* ===================================================== */
-.refund-amount-error {
-  color: #e74c3c;
-  font-size: 14px;
-  margin-top: 5px;
-  display: block;
-  font-weight: 500;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.refund-amount-error.show { opacity: 1; }
-.refund-amount-invalid {
-  border-color: #e74c3c !important;
-  background-color: #fdf2f2 !important;
-  box-shadow: 0 0 5px rgba(231, 76, 60, 0.3) !important;
-  animation: shake 0.5s ease-in-out;
-}
-.refund-amount-valid {
-  border-color: #27ae60 !important;
-  background-color: #f8fff8 !important;
-}
-@keyframes shake {
-  0%,100%{transform:translateX(0);}
-  25%{transform:translateX(-5px);}
-  75%{transform:translateX(5px);}
-}
+  /* ===================================================== */
+  /* FOOTER UPDATES — Layout & Spacing                     */
+  /* ===================================================== */
+  .SC-Menu.tier1 {
+    column-gap: 0px;
+  }
+
+  .SC-Menu_image {
+    padding: 0px 10px;
+  }
+
+  .SC-Logo {
+    padding: 0px;
+  }
+
+  .social-media-menu-items ul li a.SC-Menu_link {
+    display: none;
+  }
+
+  .SC-Menu_image:hover:after {
+    background-color: transparent;
+  }
 
 
-/* ===================================================== */
-/* GENERAL HIDDEN ELEMENTS                               */
-/* ===================================================== */
-.SC-ExcludesTax,
-.SC-OrderTotal_reorder { display: none !important; }
+  /* ===================================================== */
+  /* REFUND FORM VALIDATION                                */
+  /* ===================================================== */
+  .refund-amount-error {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .refund-amount-error.show { opacity: 1; }
+  .refund-amount-invalid {
+    border-color: #e74c3c !important;
+    background-color: #fdf2f2 !important;
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.3) !important;
+    animation: shake 0.5s ease-in-out;
+  }
+  .refund-amount-valid {
+    border-color: #27ae60 !important;
+    background-color: #f8fff8 !important;
+  }
+  @keyframes shake {
+    0%,100%{transform:translateX(0);}
+    25%{transform:translateX(-5px);}
+    75%{transform:translateX(5px);}
+  }
 
 
-/* ===================================================== */
-/* HEADER HOVER EFFECTS                                  */
-/* ===================================================== */
+  /* ===================================================== */
+  /* GENERAL HIDDEN ELEMENTS                               */
+  /* ===================================================== */
+  .SC-ExcludesTax,
+  .SC-OrderTotal_reorder { display: none !important; }
 
-/* Logo grow */
-.SC-Header .SC-Logo {
-  transition: all .2s ease-in-out;
-}
-.SC-Header .SC-Logo:hover {
-  transform: scale(1.05);
-}
 
-/* Header link color on hover */
-#SC-Header .SC-Header_inner_right .SC-Menu_link:hover {
-  color: #e7a614 !important;
-}
+  /* ===================================================== */
+  /* HEADER HOVER EFFECTS                                  */
+  /* ===================================================== */
 
-/* Header icon hover animation (login & cart) */
-#SC-Header .SC-Header_inner_right .SC-Menu_link svg,
-#SC-Header .SC-Header_inner_right .SC-Icon-button svg {
-  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
-}
+  /* Logo grow */
+  .SC-Header .SC-Logo {
+    transition: all .2s ease-in-out;
+  }
+  .SC-Header .SC-Logo:hover {
+    transform: scale(1.05);
+  }
 
-#SC-Header .SC-Header_inner_right .SC-Menu_link:hover svg,
-#SC-Header .SC-Header_inner_right .SC-Icon-button:hover svg {
-  transform: scale(1.05);
-  color: hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1);
-}
+  /* Header link color on hover */
+  #SC-Header .SC-Header_inner_right .SC-Menu_link:hover {
+    color: #e7a614 !important;
+  }
 
-#SC-Header .SC-Header_inner_right .SC-Menu_link:focus-visible svg,
-#SC-Header .SC-Header_inner_right .SC-Icon-button:focus-visible svg {
-  outline: 2px solid hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1);
-  outline-offset: 3px;
-  border-radius: 50%;
-}
-
-/* Reduce Motion Preference */
-@media (prefers-reduced-motion: reduce) {
+  /* Header icon hover animation (login & cart) */
   #SC-Header .SC-Header_inner_right .SC-Menu_link svg,
   #SC-Header .SC-Header_inner_right .SC-Icon-button svg {
-    transition: none !important;
-    transform: none !important;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
   }
-}
+
+  #SC-Header .SC-Header_inner_right .SC-Menu_link:hover svg,
+  #SC-Header .SC-Header_inner_right .SC-Icon-button:hover svg {
+    transform: scale(1.05);
+    color: hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1);
+  }
+
+  #SC-Header .SC-Header_inner_right .SC-Menu_link:focus-visible svg,
+  #SC-Header .SC-Header_inner_right .SC-Icon-button:focus-visible svg {
+    outline: 2px solid hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1);
+    outline-offset: 3px;
+    border-radius: 50%;
+  }
+
+  /* Reduce Motion Preference */
+  @media (prefers-reduced-motion: reduce) {
+    #SC-Header .SC-Header_inner_right .SC-Menu_link svg,
+    #SC-Header .SC-Header_inner_right .SC-Icon-button svg {
+      transition: none !important;
+      transform: none !important;
+    }
+  }
