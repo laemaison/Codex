@@ -358,6 +358,10 @@ img.SC-ImageBesideText_image:hover {
   display: none;
 }
 
+.SC-Menu_image:hover:after {
+  background-color: transparent;
+}
+
 
 /* ===================================================== */
 /* REFUND FORM VALIDATION                                */
