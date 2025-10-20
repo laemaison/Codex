@@ -1,0 +1,684 @@
+/* ===================================================== */
+/* Hide Pre-Footer */
+/* ===================================================== */
+#SC-PreFooter {
+display: none !important;
+}
+
+/* ===================================================== */
+/* HERO SECTION - Image, Layout, Overlay */
+/* ===================================================== */
+#SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner {
+position: relative;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+min-height: 85vh !important;
+height: auto !important;
+background-size: cover !important;
+background-position: center !important;
+background-repeat: no-repeat;
+}
+
+/* Hero background tint overlay */
+#SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner::before {
+content: '';
+position: absolute;
+inset: 0;
+background: rgba(0, 0, 0, 0.35); /* dark tint */
+z-index: 1;
+}
+
+/* ===================================================== */
+/* HERO CONTAINER - Flex behavior and alignment */
+/* ===================================================== */
+/*#SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_container {
+display: flex !important;
+justify-content: flex-start !important;
+padding-left: 0 !important;
+}*/
+
+
+/* ===================================================== */
+/* HERO TEXT BLOCK - Background, Padding, Typography */
+/* ===================================================== */
+#SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_content {
+position: relative;
+z-index: 2;
+max-width: 720px !important;
+width: auto !important;
+margin: 0 !important;
+padding: 2rem 3rem;
+border-radius: 6px;
+background-color: rgba(0, 0, 0, 0.5); /* semi-transparent dark background */
+text-align: left;
+}
+
+/* Heading (Title) */
+#SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_heading {
+font-size: 3.25rem;
+font-weight: 800;
+color: white !important;
+line-height: 1.2;
+margin-bottom: 1rem;
+padding-bottom: 0.5rem;
+border-bottom: 4px solid #e7a514; /* Yellow underline */
+}
+
+/* Subtitle Paragraph Text */
+#SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_content p {
+color: white !important;
+}
+
+
+/* ===================================================== */
+/* HERO CTA BUTTON */
+/* ===================================================== */
+.SC-Banner_cta {
+background-color: var(--blue, #00467f) !important;
+border: 0.125rem solid var(--blue, #00467f) !important;
+border-radius: 6px !important;
+color: var(--white, #ffffff) !important;
+font-size: 1.125rem !important;
+font-weight: 700 !important;
+line-height: 1.55 !important;
+padding: 0.78125rem 2rem !important;
+text-align: center;
+text-decoration: none !important;
+display: inline-block !important;
+width: 18.75rem !important;
+transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+
+.SC-Banner_cta:hover,
+.SC-Banner_cta:focus {
+background-color: var(--white, #ffffff) !important;
+color: var(--blue, #00467f) !important;
+border-color: var(--blue, #00467f) !important;
+}
+
+
+/* ===================================================== */
+/* Cleanup Aspect Ratio Conflicts */
+/* ===================================================== */
+#SC-ContentBlock-bluegrass-homepage-hero-image .SC-ImageTextOverlay {
+aspect-ratio: auto !important;
+}
+
+/* ============================================= */
+/* HERO CTA BUTTON BASE STYLES (Glow foundation) */
+/* ============================================= */
+.SC-Banner_cta {
+position: relative; /* Needed for pseudo-elements or effects */
+z-index: 1; /* Keeps it above background overlays */
+border-radius: 6px; /* Matches design curve */
+overflow: hidden; /* Prevents glow spillover */
+transition: box-shadow 0.3s ease-out; /* Smooth glow fade */
+}
+
+/* ============================================= */
+/* GLOW ON HOVER (Specific to CTA only) */
+/* ============================================= */
+.SC-Banner_cta:hover {
+box-shadow: 0 0 10px rgba(231, 166, 20, 0.5); /* Subtle yellow glow */
+}
+
+/* ============================================= */
+/* STRONGER GLOW FOR ALL BUTTONS ON HOVER */
+/* ============================================= */
+.sc-button:hover,
+.SC-Button-primary:hover,
+.SC-Banner_cta:hover {
+box-shadow: 0 0 14px rgba(231, 166, 20, 0.75); /* Brighter yellow glow */
+transition: box-shadow 0.3s ease-out; /* Smooth activation */
+}
+
+/* ============================================= */
+/* BASE SETUP FOR ALL BUTTONS */
+/* Ensures glow positioning is supported */
+/* ============================================= */
+.sc-button,
+.SC-Button-primary,
+.SC-Banner_cta {
+position: relative; /* Required for box-shadow layering */
+z-index: 1; /* Ensures proper stacking above backgrounds */
+}
+
+/* ============================================================ */
+/* Banner overlay alignment */
+/* ============================================================ */
+
+.SC-Banner_container.sc-left {
+display: flex;
+justify-content: flex-start;
+align-items: flex-end; /* if vertical alignment needed */
+transform: translateX(5%);
+bottom: 3rem;
+left: 3rem;
+position: absolute;
+z-index: 2;
+}
+
+
+/* ============================================================ */
+/* Fix hover visibility for top-right header links only */
+/* These are in .SC-Header_inner_right section */
+/* ============================================================ */
+#SC-Header .SC-Header_inner_right .SC-Menu_link:hover {
+color: #e7a614 !important; /* White hover text for contrast */
+}
+
+
+/* ===================================================== */
+/* Header */
+/* ===================================================== */
+
+/* Target homepage-video-container specifically */
+#SC-ContentBlock-homepage-video-container .sc-bordered-heading {
+position: relative;
+padding-bottom: var(--sc-spacing-medium);
+font-weight: 700;
+font-size: 28px;
+}
+
+@media screen and (min-width: 992px) {
+#SC-ContentBlock-homepage-video-container .sc-bordered-heading {
+font-size: 38px;
+}
+}
+
+#SC-ContentBlock-homepage-video-container .sc-bordered-heading::before {
+content: "";
+position: absolute;
+width: 140px;
+height: 4px;
+background-color: #e7a514; /* Use --sc-color-yellow if defined */
+bottom: 0;
+left: 0;
+}
+
+/* Optional: Centered underline */
+#SC-ContentBlock-homepage-video-container.sc-text-center .sc-bordered-heading::before {
+right: 0;
+margin: 0 auto;
+}
+
+/* ===================================================== */
+/* Hero Video Banner */
+/* ===================================================== */
+
+#SC-ContentBlock-bluegrass-homepage-hero-video .SC-Banner_container {
+display: flex;
+justify-content: flex-start;
+padding-left: 0;
+width: 100%;
+z-index: 2;
+}
+
+#SC-ContentBlock-bluegrass-homepage-hero-video .SC-Banner_content {
+position: relative;
+z-index: 2;
+max-width: 720px !important;
+width: auto !important;
+margin: 0 !important;
+padding: 2rem 3rem;
+border-radius: 6px;
+background-color: rgba(0, 0, 0, 0.5);
+text-align: left;
+}
+
+#SC-ContentBlock-bluegrass-homepage-hero-video .SC-Banner_heading {
+font-size: 3.25rem;
+font-weight: 800;
+color: white !important;
+line-height: 1.2;
+margin-bottom: 1rem;
+padding-bottom: 0.5rem;
+border-bottom: 4px solid #e7a514;
+}
+
+
+/* Match full viewport height */
+#SC-ContentBlock-bluegrass-homepage-hero-video .SC-Banner {
+position: relative;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+min-height: 85vh !important;
+height: auto !important;
+overflow: hidden;
+}
+
+#SC-ContentBlock-bluegrass-homepage-hero-video .SC-Banner_background {
+position: absolute;
+inset: 0;
+width: 100%;
+height: 100%;
+z-index: 0;
+overflow: hidden;
+}
+
+#SC-ContentBlock-bluegrass-homepage-hero-video iframe {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 120vw;
+height: 120vh;
+object-fit: cover;
+z-index: 0;
+}
+
+
+#SC-ContentBlock-bluegrass-homepage-hero-video .SC-Banner_background {
+position: absolute;
+inset: 0;
+left: 0 !important;
+right: 0 !important;
+margin: 0 auto;
+height: 100%;
+z-index: 0;
+overflow: hidden;
+}
+
+/* ============================================= */
+/* Fallback if #SC-ContentBlock ID is missing */
+/* Target .SC-Banner with a <video> background */
+/* ============================================= */
+.SC-Banner:has(video) .SC-Banner_container {
+position: absolute;
+bottom: 3rem;
+left: 3rem;
+z-index: 2;
+}
+
+
+
+.SC-Banner:has(video) .SC-Banner_heading {
+font-size: 3.25rem;
+font-weight: 800;
+color: white !important;
+line-height: 1.2;
+margin-bottom: 1rem;
+padding-bottom: 0.5rem;
+border-bottom: 4px solid #e7a514; /* yellow underline */
+}
+
+.SC-Banner:has(video) .SC-Banner_subheading {
+color: white !important;
+}
+
+
+.SC-Banner:has(video) .SC-Banner_content {
+opacity: 0;
+transform: translateY(40px); /* stronger offset */
+animation: fadeInUp 1.2s ease-out 0.3s forwards;
+align-self: unset !important;
+}
+
+
+@keyframes fadeInUp {
+0% {
+opacity: 0;
+transform: translateY(40px);
+}
+60% {
+opacity: 0.8;
+transform: translateY(10px);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* ===================================================== */
+/*BCTC CATEGORY CARD HOVER EFFECTS */
+/* ===================================================== */ 
+
+.SC-CardGrid_item .SC-ImageLink {
+display: block;
+border: 4px solid transparent; /* Thicker default border */
+border-radius: 6px;
+overflow: hidden;
+transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.SC-CardGrid_item .SC-ImageLink:hover {
+transform: scale(1.03);
+border-color: #e7a514;
+box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.SC-CardGrid_item .SC-ImageLink img {
+transition: transform 0.3s ease;
+display: block;
+width: 100%;
+height: auto;
+}
+
+.SC-CardGrid_item .SC-ImageLink:hover img {
+transform: scale(1.05);
+}
+
+/* ===================================================== */
+/* Product Card */
+/* ===================================================== */
+
+.SC-ProductCard_image {
+aspect-ratio: 1/1;
+}
+
+.SC-ProductCard_image img {
+object-fit: cover;
+width: 100%;
+height: 100%;
+max-width: 100%;
+}
+
+/* ===================================================== */
+/* Footer */
+/* ===================================================== */
+
+ .sc-bg-primary {
+  background-color: var(--sc-color-primary);
+}
+
+.Menu_image img, .SC-Menu_image img {
+    width: 32px;
+    height: 32px;
+}
+
+.SC-Logo_image {
+    height: auto;
+    max-height: 100px;
+    max-width: 150px;
+    width: auto;
+}
+
+@media only screen and (min-width: 768px) {
+    .Logo_image, .SC-Logo_image {
+        max-height: 100px;
+        max-width: 150px;
+    }
+}
+
+.SC-Menu_item {
+    text-align: center;
+}
+
+/* ===================================================== */
+/* Footer CTA Button Styling */
+/* ===================================================== */
+.footer-cta-button > .SC-Menu_link {
+  background-color: var(--blue, #00467f);            /* Button background color */
+  border: 0.125rem solid var(--blue, #00467f);       /* Solid border matching background */
+  border-radius: 6px;                                /* Rounded corners */
+  color: var(--white, #ffffff);                      /* White text */
+  font-size: 1.125rem;                               /* Slightly larger font */
+  font-weight: 700;                                  /* Bold text */
+  line-height: 1.55;                                 /* Improved vertical alignment */
+  padding: 0.78125rem 2rem;                          /* Top/bottom and left/right padding */
+  text-align: center;                                /* Center text horizontally */
+  text-decoration: none;                             /* Remove underline */
+  display: inline-block;                             /* Allows padding and width control */
+  width: 18.75rem;                                   /* Fixed button width */
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease;                /* Smooth hover transitions */
+  position: relative;                                /* Required for z-index and effects */
+  z-index: 1;                                        /* Keeps button above other elements */
+  overflow: hidden;                                  /* Ensures glow effect doesnâ€™t spill */
+  cursor: pointer;                                   /* Pointer cursor on hover */
+}
+
+.footer-cta-button > .SC-Menu_link:hover,
+.footer-cta-button > .SC-Menu_link:focus {
+  background-color: var(--white, #ffffff);          /* Invert background */
+  color: var(--blue, #00467f);                      /* Invert text color */
+  border-color: var(--blue, #00467f);               /* Maintain border */
+  box-shadow: 0 0 14px rgba(231, 166, 20, 0.75);     /* Yellow glow effect on hover/focus */
+}
+
+/* ===================================================== */
+/* Home Image: Rounded Corners + Glow Hover Effect */
+/* ===================================================== */
+img.SC-ImageBesideText_image {
+  border-radius: 10px;                                      /* Default border radius */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;    /* Smooth hover effects */
+  position: relative;                                       /* Required for layering glow */
+  z-index: 1;                                               /* Ensure it's above overlays */
+}
+
+/* Hover effect: subtle scale and yellow glow */
+img.SC-ImageBesideText_image:hover {
+  transform: scale(1.03);                                   /* Slight zoom */
+  box-shadow: 0 0 14px rgba(231, 166, 20, 0.75);            /* CTA-style yellow glow */
+}
+
+/* Mobile: smaller radius */
+@media screen and (max-width: 768px) {
+  img.SC-ImageBesideText_image {
+    border-radius: 4px;
+  }
+}
+
+
+
+/* Footer Updates with SC 7/16/25  */
+
+.SC-Menu.tier1 {
+    column-gap: 0px;
+}
+
+.SC-Menu_image {
+    padding: 0px 10px;
+}
+
+.SC-Logo {
+    padding: 0px;
+}
+
+.social-media-menu-items ul li a.SC-Menu_link {
+    display: none;
+}
+
+/* Refund form with SC 7/24/25  */
+
+/* Validation styling for refund amount field */
+.refund-amount-wrapper {
+    position: relative;
+}
+
+.refund-amount-error {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.refund-amount-error.show {
+    opacity: 1;
+}
+
+.refund-amount-invalid {
+    border-color: #e74c3c !important;
+    background-color: #fdf2f2 !important;
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.3) !important;
+    animation: shake 0.5s ease-in-out;
+}
+
+.refund-amount-valid {
+    border-color: #27ae60 !important;
+    background-color: #f8fff8 !important;
+}
+
+.refund-help-text {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+    display: block;
+    font-style: italic;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Format number input to look more like currency */
+input[name="answers[a0xbc000001IvYjAAK][answer]"] {
+    text-align: left;
+    font-family: monospace;
+    padding-right: 10px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+/* dollar sign */
+input[name="answers[a0xbc000001IvYjAAK][answer]"] {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/1/14/Dollar_Sign.svg);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 16px 16px;
+    padding-left: 35px !important;
+    text-align: left !important;
+    font-family: monospace !important;
+}
+
+
+input[name="answers[a0xbc000001IvYjAAK][answer]"]::before {
+    content: '$';
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    font-weight: bold;
+    font-size: 16px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* CSS fallback - hide canceled options */
+select[name="answers[a0xbc000001IvTtAAK][answer]"] option[value="canceled"] {
+    display: none !important;
+}
+
+
+/* REMOVED!!!! Styling for filtered select */
+/* .filtered-order-select {
+    border-left: 3px solid #28a745 !important;
+    background-color: #f8fff8 !important;
+}
+
+.filter-indicator {
+    color: #28a745;
+    font-size: 11px;
+    margin-top: 3px;
+    display: block;
+    font-weight: 500;
+}
+REMOVED!!!! */
+
+/* ===================================================== */
+/* Excludes Tax                                           */
+/* ===================================================== */
+.SC-ExcludesTax {
+  display: none !important;
+}
+
+/* ===================================================== */
+/* Hide Reorder button on Individual Order Summary Page                                        */
+/* ===================================================== */
+.SC-OrderTotal_reorder {
+  display: none !important;
+}
+
+/* ===================================================== */
+/* Hover over social icons on the footer; make it transparent                                     */
+/* ===================================================== */
+.SC-Menu_image:hover:after {
+    background-color: transparent;
+}
+
+/* ===================================================== */
+/* Mobile Media Screen Rules*/
+/* ===================================================== */
+
+@media screen and (max-width: 768px) {
+    .SC-Banner {
+        min-height: 65vh !important;
+    }
+
+    .SC-Banner:has(video) .SC-Banner_container {
+        position: absolute;
+        bottom: 2rem;
+        left: 0;
+        z-index: 2;
+    }
+
+    .SC-Banner_container.sc-left {
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        transform: none;
+        left: 0;
+        position: absolute;
+    }
+    .SC-Banner:has(video) .SC-Banner_content {
+        bottom: 2rem;
+   }
+    .SC-Menu.tier1.dropdown {
+    font-weight: 600;
+    font-size: var(--sc-font-small);
+    background-color: hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1);
+    color: white;
+    }
+
+    #SC-Footer .SC-Loginhidefootermobile{
+        display: none;
+    }
+    .SC-Menu_button {
+    padding: .5rem .75rem;
+    }
+    /* Kill menu scale on mobile for the account panel */
+  ul.SC-Menu.dropdown.is-active[data-nav="account"],
+  ul.SC-Menu.dropdown[data-nav="account"] {
+    transform: none !important;                 /* beats inline or later normal rules */
+    transition: opacity .12s ease !important;   /* keep fade, drop scale anim */
+  }
+}
+
+
+/* ===================================================== */
+/* Refund Form Submit Button Override default class*/
+/* ===================================================== */
+
+.sc-one-quarter {
+    width: auto !important;
+}
+
+/* ===================================================== */
+/* Round off the corners for the Account and Cart dropdown*/
+/* ===================================================== */
+
+.SC-Menu.dropdown {
+        border-radius: 16px;
+}
+
+/* ===================================================== */
+/* Header logo grow*/
+/* ===================================================== */
+
+.SC-Header .SC-Logo { 
+  transition: all .2s ease-in-out; 
+}
+.SC-Header .SC-Logo:hover { 
+  transform: scale(1.05); 
+}

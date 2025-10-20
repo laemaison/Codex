@@ -1,0 +1,332 @@
+:root {
+    /* === Theme Primary Colors === */
+    --sc-color-primary-h: 207;
+    --sc-color-primary-s: 100.0%;
+    --sc-color-primary-l: 25%;
+    --sc-color-primary-a: 1;
+    --sc-color-primary: #00467f;
+
+    --sc-color-secondary-h: 42;
+    --sc-color-secondary-s: 84%;
+    --sc-color-secondary-l: 49%;
+    --sc-color-secondary-a: 1;
+
+    /* === Global Site Styling === */
+    --sc-header-bg: #00467F;
+    --sc-header-color: white;
+
+    
+    --sc-font-family: 'Century Gothic', sans-serif !important;
+
+    --sc-menu-link-color-hover: #00467f;
+    --sc-color-sale: #ff0040;
+    --sc-color-sale-h: 344.9;
+    --sc-color-sale-s: 100%;
+    --sc-color-sale-l: 50%;
+
+    --sc-color-error: #ff0040;
+    --sc-color-sale-h: 344.9;
+    --sc-color-sale-s: 100%;
+    --sc-color-sale-l: 50%;
+
+    --sc-shade-darkest: #3c4766;
+    --sc-shade-dark: #66708a;
+    --sc-shade-neutral: #a4aab9;
+    --sc-shade-light: #d2d6e0;
+    --sc-shade-lightest: #f1f3f7;
+
+    --sc-border-radius: 5px;
+    --sc-spacing-micro: 4px;
+    --sc-spacing-tiny: 8px;
+    --sc-spacing-small: 12px;
+    --sc-spacing-medium: 20px;
+    --sc-spacing-base: 24px;
+    --sc-spacing-large: 32px;
+    --sc-spacing-xlarge: 48px;
+    --sc-spacing-xxlarge: 72px;
+    --sc-spacing-huge: 96px;
+
+    --sc-border-width-md: 720px;
+    --sc-max-width-lg: calc(1220px + 60px);
+    --sc-max-width: calc(1190px + 60px);
+    --sc-max-width-skinny: 760px;
+
+    --sc-footer-bg: white;
+    --sc-footer-color: var(--sc-shade-darkest);
+
+}
+
+
+
+
+/* SC Overrides */
+.SC-Article_content {
+    font-size: var(--sc-font-medium);
+    line-height: 29px;
+}
+
+.SC-Banner_overlay {
+    background-color: rgba(0, 0, 0, 0.35);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.SC-ContentBlockContainer_body.sc-none {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sc-spacing-base);
+}
+
+.SC-FeaturedCategoryProducts_grid {
+    display: grid;
+    gap: var(--sc-spacing-base);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media only screen and (min-width: 768px) {
+    .SC-FeaturedCategoryProducts_grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .SC-FeaturedCategoryProducts_grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+#SC-HeaderMenuSecondary {
+    gap: var(--sc-spacing-large);
+}
+
+#SC-HeaderMenuSecondary svg {
+    fill: none;
+}
+
+@media only screen and (max-width: 991.98px) {
+    .SC-Count {
+        position: absolute;
+        right: -5px;
+        top: 1px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .SC-Count {
+        align-self: start;
+        height: 20px;
+        width: 20px;
+        line-height: 19px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .SC-Navbar {
+        background-color: hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1);
+        color: white;
+    }
+}
+
+.SC-Booking_availabilities {
+    height: auto;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.SC-Booking_availabilities .sc-notice {
+    min-height: 100px;
+    padding: var(--sc-spacing-base);
+    text-align: center;
+}
+
+.SC-BookingTimeSlot button {
+    border-radius: 50px;
+}
+
+.SC-Menu.tier1.dropdown {
+    font-weight: 600;
+    font-size: var(--sc-font-small);
+}
+
+.SC-QuantityPicker_trigger {
+    border-radius: 50px;
+    font-size: var(--sc-font-tiny);
+    font-weight: var(--sc-font-bold);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.SC-Breadcrumb a {
+    color: var(--sc-shade-dark);
+    font-size: var(--sc-font-tiny);
+}
+
+.SC-Breadcrumb a {
+    color: var(--sc-shade-dark);
+    font-size: var(--sc-font-tiny);
+}
+
+@media only screen and (min-width: 768px) {
+    .SC-Grid_sidebar {
+        grid-column: sidebar;
+        margin-right: var(--sc-spacing-large);
+        width: 220px;
+    }
+}
+
+.SC-Card-floating {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+#SC-accounts-show article {
+    background-color: var(--sc-shade-lightest);
+}
+
+#SC-AccountNav {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    padding: var(--sc-spacing-base);
+}
+
+/* Utility classes */
+.sc-icon-map {
+    fill: none;
+}
+
+.sc-icon-no-fill {
+    fill: none;
+}
+
+.sc-color-white {
+    color: white;
+}
+
+.litepicker .container__months .month-item-weekdays-row {
+    gap: var(--sc-spacing-small);
+}
+
+.tns-nav button.tns-nav-active {
+    background: white;
+}
+
+
+.sc-bg-primary {
+    background-color: var(--sc-color-primary);
+}
+
+.sc-bg-transparent {
+    background-color: transparent;
+}
+
+.sc-max-width:not(.sc-expand),
+.sc-max-width:not(.sc-expanded) {
+    max-width: var(--sc-max-width-md);
+}
+
+@media screen and (min-width: 992px) {
+
+    .sc-max-width:not(.sc-expand),
+    .sc-max-width:not(.sc-expanded) {
+        max-width: var(--sc-max-width-lg);
+    }
+}
+
+.sc-max-width-skinny {
+    max-width: var(--sc-max-width-skinny);
+}
+
+.sc-grid {
+    display: grid;
+}
+
+.sc-grid {
+    display: grid;
+}
+
+.sc-two-to-five-column {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media screen and (min-width: 768px) {
+    .sc-two-to-five-column {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .sc-two-to-five-column {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .sc-two-to-five-column {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sc-one-third-two-thirds {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sc-two-thirds-one-third {
+        grid-template-columns: 1fr;
+    }
+}
+
+.sc-two-to-three-column {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (min-width: 768px) {
+    .sc-two-to-three-column {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .sc-lg\:ps-none {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .sc-xxlg\:ps-none {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.tns-controls button {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--sc-border-radius);
+    background-size: 35%;
+}
+
+.tns-controls button:hover {
+    background-color: transparent;
+}
+
+.tns-cards .tns-controls button {
+    background-color: white;
+    box-shadow: var(--sc-shadow);
+}
+
+.sc-rotate-270 {
+    transform: rotate(270deg);
+}
+
+/* Custom Classes */
+.video-container {
+    min-height: 55vh;
+}

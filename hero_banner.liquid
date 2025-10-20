@@ -1,0 +1,29 @@
+<div class="SC-Banner" style="position: relative; min-height: 85vh; overflow: hidden;">
+
+  <!-- Fullscreen MP4 Background -->
+  <div class="SC-Banner_background" style="position: absolute; inset: 0; z-index: 0;">
+    <video autoplay muted loop playsinline style="
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120vw;
+      height: 120vh;
+      object-fit: cover;
+      z-index: 0;">
+      <source src="{{ content_block.video.url }}" type="video/mp4">
+    </video>
+    <!-- Tint overlay -->
+    <div style="position: absolute; inset: 0; background-color: rgba(0, 0, 0, 0.55); z-index: 1;"></div>
+  </div>
+
+  <!-- Overlay content -->
+<div class="SC-Banner_container sc-left">
+    <div class="SC-Banner_content">
+      <h1 class="SC-Banner_heading">{{ content_block.title }}</h1>
+      <p class="SC-Banner_subheading">{{ content_block.subtitle }}</p>
+      <a href="{{ content_block.link_target }}" class="SC-Banner_cta">{{ content_block.link_label }}</a>
+    </div>
+  </div>
+
+</div>
