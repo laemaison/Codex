@@ -293,17 +293,6 @@
   width: auto;
 }
 
-@media only screen and (min-width: 768px) {
-  .Logo_image, .SC-Logo_image {
-    max-height: 100px;
-    max-width: 150px;
-  }
-}
-
-.SC-Menu_item {
-  text-align: center;
-}
-
 .footer-cta-button > .SC-Menu_link {
   background-color: var(--sc-color-primary);
   border: 0.125rem solid var(--sc-color-primary);
@@ -336,26 +325,6 @@ img.SC-ImageBesideText_image {
 img.SC-ImageBesideText_image:hover {
   transform: scale(1.03);
   box-shadow: 0 0 14px rgba(231, 166, 20, 0.75);
-}
-
-
-/* ===================================================== */
-/* FOOTER UPDATES — Layout & Spacing                     */
-/* ===================================================== */
-.SC-Menu.tier1 {
-  column-gap: 0px;
-}
-
-.SC-Menu_image {
-  padding: 0px 10px;
-}
-
-.SC-Logo {
-  padding: 0px;
-}
-
-.social-media-menu-items ul li a.SC-Menu_link {
-  display: none;
 }
 
 
