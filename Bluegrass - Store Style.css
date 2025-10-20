@@ -119,14 +119,14 @@
 #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.35);
   z-index: 1;
 }
 
 /* Container positioning — bottom-left with offset */
 #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_container {
   position: absolute;
-  bottom: 6rem;
+  bottom: 3rem;
   left: 3rem;
   z-index: 2;
   max-width: 720px;
@@ -139,36 +139,37 @@
   align-items: flex-end;
 }
 
-/* Content wrapper — no background, fade-in animation */
+/* Content wrapper — semi-transparent background, fade-in animation */
 #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_content {
-  background: none !important;
-  padding: 0 !important;
+  position: relative;
+  z-index: 2;
+  max-width: 720px !important;
+  width: auto !important;
   margin: 0 !important;
+  padding: 2rem 3rem;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.5);
   color: #ffffff !important;
   text-align: left;
   opacity: 0;
   transform: translateY(40px);
   animation: fadeInUp 1.2s ease-out 0.3s forwards;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.55);
 }
 
 /* Heading with yellow underline */
 #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_heading {
-  font-size: 3rem;
+  font-size: 3.25rem;
   font-weight: 800;
   line-height: 1.2;
-  margin: 0 0 1rem 0;
-  padding: 0 0 0.5rem 0;
-  border-bottom: 4px solid hsla(var(--sc-color-secondary-h), var(--sc-color-secondary-s), var(--sc-color-secondary-l), 1);
-  color: #ffffff;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 4px solid #e7a514;
+  color: #ffffff !important;
 }
 
 /* Subtitle text */
 #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_subheading {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: #ffffff;
-  margin: 0 0 1.5rem 0;
+  color: #ffffff !important;
 }
 
 /* CTA Button — Blue with yellow glow on hover */
