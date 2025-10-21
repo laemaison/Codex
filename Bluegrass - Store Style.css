@@ -190,6 +190,7 @@
     padding-bottom: 0.5rem;
     border-bottom: 4px solid #e7a514;
     color: #ffffff !important;
+    max-width: 380px;
   }
 
   /* Subtitle text */
