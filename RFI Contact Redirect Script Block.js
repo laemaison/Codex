@@ -1,8 +1,9 @@
+{% assign rfi_email = store_variables['rfi_email_address'] | default: blank %}
 (function() {
   'use strict';
 
   // Get email from Liquid store variable (injected at page load)
-  const storeEmail = '{{ store.variables.rfi_email_address }}';
+  const storeEmail = '{{ rfi_email }}';
   const subjectLine = 'Storefront request for information';
   let attached = false;
 
