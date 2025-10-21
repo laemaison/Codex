@@ -1,20 +1,24 @@
-{% assign rfi_email = store_variables['rfi_email_address'] | default: blank %}
 (function() {
   'use strict';
 
-  // Get email from Liquid store variable (injected at page load)
-  const storeEmail = '{{ rfi_email }}';
   const subjectLine = 'Storefront request for information';
   let attached = false;
 
   function getStoreEmail() {
-    // Use the store variable injected via Liquid
-    if (storeEmail && storeEmail !== '' && !storeEmail.includes('{{')) {
-      console.log('[Footer RFI] Using rfi_email_address store variable:', storeEmail);
-      return storeEmail;
+    // Try to get email from meta tag (set via Liquid in theme)
+    const metaTag = document.querySelector('meta[name="rfi-email-address"]');
+    if (metaTag && metaTag.content && metaTag.content !== '') {
+      console.log('[Footer RFI] Email found via meta tag:', metaTag.content);
+      return metaTag.content;
     }
 
-    console.error('[Footer RFI] rfi_email_address store variable not found or empty');
+    // Fallback: Try to get from global store object if available
+    if (typeof store !== 'undefined' && store && store.variables && store.variables.rfi_email_address) {
+      console.log('[Footer RFI] Email found via store.variables:', store.variables.rfi_email_address);
+      return store.variables.rfi_email_address;
+    }
+
+    console.error('[Footer RFI] rfi_email_address not found. Checked meta tag and store.variables');
     return null;
   }
 
