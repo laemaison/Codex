@@ -164,18 +164,18 @@
     justify-content: flex-start !important;
   }
 
-  /* Content wrapper — semi-transparent background, fade-in animation */
+  /* Content wrapper — NO background, fade-in animation (matches Ashland) */
   #SC-ContentBlock-bluegrass-homepage-hero-image .SC-Banner_content {
     position: relative;
     z-index: 2;
-    max-width: 600px !important;
+    max-width: 480px !important;
     width: auto !important;
     margin: 0 !important;
-    padding: 2rem 3rem;
-    border-radius: 6px;
-    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0 !important;
+    background: none !important;
     color: #ffffff !important;
     text-align: left;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
     opacity: 0;
     transform: translateY(40px);
     animation: fadeInUp 1.2s ease-out 0.3s forwards;
