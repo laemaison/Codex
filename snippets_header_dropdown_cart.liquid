@@ -8,6 +8,7 @@
   {%- endif %}
 {%- endcapture %}
 
+{%- comment -%} ADA Compliance: Added aria-label for cart icon accessibility {%- endcomment -%}
 <li
   class="SC-Menu_item dropdown"
   data-nav=root
@@ -15,7 +16,8 @@
   <a
     href="{{ current_store.cart_path }}"
     class="SC-Menu_link"
-    data-nav-trigger="cart">
+    data-nav-trigger="cart"
+    aria-label="Cart">
     <span class="sc-pointer-events-none">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +29,8 @@
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
-        class="lucide lucide-shopping-cart-icon lucide-shopping-cart"><circle
+        class="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+        aria-hidden="true"><circle
           cx="8"
           cy="21"
           r="1" /><circle
