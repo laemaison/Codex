@@ -1,0 +1,98 @@
+{%- require "scripts/nav.js" -%}
+
+{%- capture item_count %}
+  {%- if current_cart.item_count > 0 %}
+    <div class="SC-Count sc-ml-tiny" data-cart-nav-count>
+      {{ current_cart.item_count }}
+    </div>
+  {%- endif %}
+{%- endcapture %}
+
+<li
+  class="SC-Menu_item dropdown"
+  data-nav=root
+  data-cart-menu>
+  <a
+    href="{{ current_store.cart_path }}"
+    class="SC-Menu_link"
+    data-nav-trigger="cart">
+    <span class="sc-pointer-events-none">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-shopping-cart-icon lucide-shopping-cart"><circle
+          cx="8"
+          cy="21"
+          r="1" /><circle
+          cx="19"
+          cy="21"
+          r="1" /><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></svg>
+    </span>
+    {{ item_count }}
+  </a>
+
+  {% # Dropdown %}
+  {%- if current_cart.items.size > 0 %}
+    <div
+      class="SC-Cart SC-Menu dropdown"
+      data-nav="cart"
+      data-sc-cart>
+      <button
+        class="SC-Menu_button"
+        data-nav-close="root"
+        type="button">
+        <svg
+          width="25"
+          height="25"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 4L4 12M4 4L12 12"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round" />
+        </svg>
+      </button>
+      {% # Line items %}
+
+      <div class="SC-CartProducts sc-grow u-overflow-y-auto">
+        {%- render "shared/cart/items"
+          , source: current_cart
+          , compact: true
+          , width: "70px"
+          , toggle_answers: true %}
+      </div>
+      {% # Cart total %}
+      <div class="sc-mb-small" data-cart-nav-summary>
+        {%- render "shared/order_total"
+          , source: current_cart
+          , compact: true %}
+      </div>
+      {% # Checkout button %}
+      {% if current_customer != blank %}
+        {%- render "shared/cart/checkout_button"
+          , class: "SC-Button SC-Button-primary SC-Button-expanded" %}
+      {% else %}
+        <a href="{{ current_store.url }}/cart" class="SC-Button SC-Button-primary SC-Button-expanded">{{ "Ready to enroll? Sign in or create your account." }}</a>
+      {% endif %}
+      {% # Include Express Checkout Wallets unless already on cart, payment_information page, or on a product page %}
+      {%- if current_cart.total_subscriptions == 0 %}
+        {%- unless current_request.path == current_store.cart_path or current_checkout_step == "payment_information" or current_product != blank %}
+          {%- if current_cart.currency_payment_required? %}
+            <aside>
+              {% render "checkout/payment_information/show_wallets_only" %}
+            </aside>
+          {%- endif %}
+        {%- endunless %}
+      {%- endif %}
+    </div>
+  {%- endif %}
+</li>
