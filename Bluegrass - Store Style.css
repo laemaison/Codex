@@ -524,6 +524,60 @@
       }
     }
 
+/* ===================================================== */
+/* Product Card & Product Detail CTA Buttons */
+/* Unified styling for all product action buttons (enabled only) */
+/* ===================================================== */
+
+/* Target buttons in product cards AND product detail page - ONLY when NOT disabled */
+.SC-ProductCard_actions .SC-Button-secondary:not(:disabled),
+.SC-ProductCard_actions input[type="submit"]:not(:disabled),
+#SC-ProductDisplayDetails input[type="submit"].SC-Button-add:not(:disabled),
+#SC-ProductDisplayDetails .SC-Button.SC-Button-add:not(:disabled) {
+  background-color: var(--sc-color-primary, #00467f) !important;
+  border: 0.125rem solid var(--sc-color-primary, #00467f) !important;
+  border-radius: 6px !important;
+  color: #ffffff !important;
+  font-size: 1.125rem !important;
+  font-weight: 700 !important;
+  line-height: 1.55 !important;
+  padding: 0.78125rem 2rem !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  position: relative !important;
+  z-index: 1 !important;
+  overflow: hidden !important;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease-out !important;
+}
+
+/* Hover state with yellow glow - only for enabled buttons */
+.SC-ProductCard_actions .SC-Button-secondary:not(:disabled):hover,
+.SC-ProductCard_actions .SC-Button-secondary:not(:disabled):focus,
+.SC-ProductCard_actions input[type="submit"]:not(:disabled):hover,
+.SC-ProductCard_actions input[type="submit"]:not(:disabled):focus,
+#SC-ProductDisplayDetails input[type="submit"].SC-Button-add:not(:disabled):hover,
+#SC-ProductDisplayDetails input[type="submit"].SC-Button-add:not(:disabled):focus,
+#SC-ProductDisplayDetails .SC-Button.SC-Button-add:not(:disabled):hover,
+#SC-ProductDisplayDetails .SC-Button.SC-Button-add:not(:disabled):focus {
+  background-color: #ffffff !important;
+  color: var(--sc-color-primary, #00467f) !important;
+  border-color: var(--sc-color-primary, #00467f) !important;
+  box-shadow: 0 0 14px rgba(231, 166, 20, 0.75) !important;
+}
+
+/* Mobile optimization - only for enabled buttons */
+@media screen and (max-width: 768px) {
+  .SC-ProductCard_actions .SC-Button-secondary:not(:disabled),
+  .SC-ProductCard_actions input[type="submit"]:not(:disabled),
+  #SC-ProductDisplayDetails input[type="submit"].SC-Button-add:not(:disabled),
+  #SC-ProductDisplayDetails .SC-Button.SC-Button-add:not(:disabled) {
+    font-size: 1rem !important;
+    padding: 0.65rem 1.5rem !important;
+  }
+}
 
 /* ===================================================== */
 /* ADA COMPLIANCE — Screen Reader Only Utility Class     */
@@ -541,4 +595,40 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+
+
+/* ===================================================== */
+/* ADA COMPLIANCE — Search Placeholder High Contrast     */
+/* ===================================================== */
+/* Higher contrast placeholder text for better           */
+/* readability per KCTCS accessibility standards         */
+/* ===================================================== */
+/* Default state - when search box is not focused */
+#SC-GlobalSearch input[type="search"]::placeholder {
+  color: #00467F !important;
+  opacity: 1 !important;
+}
+
+/* Focused state - when user clicks on search box */
+#SC-GlobalSearch input[type="search"]:focus::placeholder {
+  color: #00467F !important;
+  opacity: 1 !important;
+}
+
+/* Browser-specific placeholder selectors for compatibility */
+#SC-GlobalSearch input[type="search"]::-webkit-input-placeholder {
+  color: #00467F !important;
+  opacity: 1 !important;
+}
+
+#SC-GlobalSearch input[type="search"]::-moz-placeholder {
+  color: #00467F !important;
+  opacity: 1 !important;
+}
+
+#SC-GlobalSearch input[type="search"]:-ms-input-placeholder {
+  color: #00467F !important;
+  opacity: 1 !important;
 }
