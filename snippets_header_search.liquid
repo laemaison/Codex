@@ -1,0 +1,8 @@
+<form action="{{ current_store.search_path }}" accept-charset="UTF-8" method="get">
+  <div id="SC-GlobalSearch" class="SC-Field SC-Field-special SC-Field-icon sc-m-none sc-mw-100">
+    {%- comment -%} ADA Compliance: Added screen-reader label for search input {%- endcomment -%}
+    <label for="q" class="sc-sr-only">Search</label>
+    <input type="search" name="q" id="q" data-search-input class="SC-Field_input sc-one-whole" autocomplete="off" placeholder="{{ "header.search.placeholder" | t }}">
+    {%- render "shared/icons/search" %}
+  </div>
+</form>
