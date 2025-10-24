@@ -50,36 +50,24 @@
 <span class="SC-Field_error">{{ field.errors | try: "messages" }}</span>
 </div>
 
-<section class="SC-Field SC-Field-expand">
-<label class="SC-Field_label">
-<label>Preferred Name</label>
-
-<input class="SC-Field_input sc-one-whole" name="answers[a0xbc000001kY4XAAU]" value="">
-</label>
+<div class="SC-Field SC-Field-expand required">
+<label for="preferred-name-field" class="SC-Field_label">Preferred Name</label>
+<input id="preferred-name-field" class="SC-Field_input" name="answers[a0xbc000001kY4XAAU]" value="" required="">
 <span class="SC-Field_error"></span>
-</section>
+</div>
 
-
-<section class="SC-Field SC-Field-expand">
-<label class="SC-Field_label">
-<label>Date of Birth</label>
-
-<input type="date" class="SC-Field_input sc-one-whole" name="answers[a0xbc000001kY9NAAU]" value="" required="">
-</label>
-</section>
-
-
-<section class="SC-Field SC-Field-expand">
-<label class="SC-Field_label">
-<label>Employer</label>
-
-<input class="SC-Field_input sc-one-whole" name="answers[a0xbc000001kY7lAAE]" value="" required="">
-</label>
+<div class="SC-Field SC-Field-expand required">
+<label for="dob-field" class="SC-Field_label">Date of Birth</label>
+<input type="date" id="dob-field" class="SC-Field_input" name="answers[a0xbc000001kY9NAAU]" value="" required="">
 <span class="SC-Field_error"></span>
-</section>
+</div>
 
+<div class="SC-Field SC-Field-expand required">
+<label for="employer-field" class="SC-Field_label">Employer</label>
+<input id="employer-field" class="SC-Field_input" name="answers[a0xbc000001kY7lAAE]" value="" required="">
+<span class="SC-Field_error"></span>
+</div>
 </section>
-
 
 {% if store_variables["enable_company_name"] %}
 <h3>{{ "accounts.register.form.headings.company_name" | t }}</h3>
@@ -98,8 +86,8 @@
 
 <div class="SC-Field SC-Field-expand required">
 <label for="county-field" class="SC-Field_label">County</label>
-<select id="county-field" class="SC-Field_input" name="answers[a0xbc000001kY69AAE]" required="">
-<option value="">Select a county</option>
+<select id="county-field" class="SC-Field_select" name="answers[a0xbc000001kY69AAE]" required="">
+<option value="">County</option>
 <option value="Adair">Adair</option>
 <option value="Adams">Adams</option>
 <option value="Allen">Allen</option>
@@ -293,6 +281,8 @@ const defaultCountryValue = "US";
 const countrySelect = registrationForm.querySelector('select[name="billing_country"]');
 if (countrySelect && !countrySelect.value) {
 countrySelect.value = defaultCountryValue;
+// Trigger change event so state dropdown populates
+countrySelect.dispatchEvent(new Event('change', { bubbles: true }));
 }
 
 // Flag to track if we've already sent the custom form
