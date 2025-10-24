@@ -1,0 +1,315 @@
+{%- if current_store.sso_login? %}
+{% render "account/login/sso_form" %}
+{%- endif %}
+
+{%- if current_store.local_login? %}
+{%- if current_store.sso_login? %}
+<hr>
+<h2>{{ "accounts.register.local_heading" | t }}</h2>
+{%- endif %}
+{%- form "register", id: "registration-form" %}
+{% render "form_errors", errors: form.errors %}
+
+<h3>{{ "accounts.register.form.headings.credentials" | t }}</h3>
+<section class="sc-mb-spacious">
+{%- assign field = form.fields["email"] %}
+<div class="SC-Field SC-Field-expand{% if field.errors != blank %} has-error{% endif %}{% if field.required? %} required{% endif %}">
+<label for="{{ field.id }}" class="SC-Field_label">{{ "accounts.register.form.labels.email" | t }}</label>
+<input type="email" name="{{ field.name }}" id="{{ field.id }}" value="{{ field.value }}" placeholder="{{ "accounts.register.form.labels.email" | t }}" class="SC-Field_input" autocomplete="email" required>
+<span class="SC-Field_error">{{ field.errors | try: "messages" }}</span>
+</div>
+
+{%- assign field = form.fields["password"] %}
+<div class="SC-Field SC-Field-expand{% if field.errors != blank %} has-error{% endif %}{% if field.required? %} required{% endif %}">
+<label for="{{ field.id }}" class="SC-Field_label">{{ "accounts.register.form.labels.password" | t }}</label>
+<input type="password" name="{{ field.name }}" id="{{ field.id }}" placeholder="{{ "accounts.register.form.labels.password" | t }}" autocomplete="new-password" class="SC-Field_input" required>
+<span class="SC-Field_error">{{ field.errors | try: "messages" }}</span>
+</div>
+</section>
+
+<h3>{{ "accounts.register.form.headings.contact" | t }}</h3>
+<section class="sc-mb-spacious">
+{%- assign field = form.fields["firstname"] %}
+<div class="SC-Field SC-Field-expand{% if field.errors != blank %} has-error{% endif %}{% if field.required? %} required{% endif %}">
+<label for="{{ field.id }}" class="SC-Field_label">{{ "accounts.register.form.labels.firstname" | t }}</label>
+<input type="text" name="{{ field.name }}" id="{{ field.id }}" value="{{ field.value }}" placeholder="{{ "accounts.register.form.labels.firstname" | t }}" class="SC-Field_input" autocomplete="given-name" required>
+<span class="SC-Field_error">{{ field.errors | try: "messages" }}</span>
+</div>
+
+{%- assign field = form.fields["lastname"] %}
+<div class="SC-Field SC-Field-expand{% if field.errors != blank %} has-error{% endif %}{% if field.required? %} required{% endif %}">
+<label for="{{ field.id }}" class="SC-Field_label">{{ "accounts.register.form.labels.lastname" | t }}</label>
+<input type="text" name="{{ field.name }}" id="{{ field.id }}" value="{{ field.value }}" placeholder="{{ "accounts.register.form.labels.lastname" | t }}" class="SC-Field_input" autocomplete="family-name" required>
+<span class="SC-Field_error">{{ field.errors | try: "messages" }}</span>
+</div>
+
+{%- assign field = form.fields["phone"] %}
+<div class="SC-Field{% if field.errors != blank %} has-error{% endif %}{% if field.required? %} required{% endif %}">
+<label for="{{ field.id }}" class="SC-Field_label">{{ "accounts.register.form.labels.phone" | t }}</label>
+<input type="tel" name="{{ field.name }}" id="{{ field.id }}" value="{{ field.value }}" placeholder="{{ "accounts.register.form.labels.phone" | t }}" class="SC-Field_input" autocomplete="tel">
+<span class="SC-Field_error">{{ field.errors | try: "messages" }}</span>
+</div>
+
+<section class="SC-Field SC-Field-expand">
+<label class="SC-Field_label">
+<label>Preferred Name</label>
+
+<input class="SC-Field_input sc-one-whole" name="answers[a0xbc000001kY4XAAU]" value="">
+</label>
+<span class="SC-Field_error"></span>
+</section>
+
+
+<section class="SC-Field SC-Field-expand">
+<label class="SC-Field_label">
+<label>Date of Birth</label>
+
+<input type="date" class="SC-Field_input sc-one-whole" name="answers[a0xbc000001kY9NAAU]" value="" required="">
+</label>
+</section>
+
+
+<section class="SC-Field SC-Field-expand">
+<label class="SC-Field_label">
+<label>Employer</label>
+
+<input class="SC-Field_input sc-one-whole" name="answers[a0xbc000001kY7lAAE]" value="" required="">
+</label>
+<span class="SC-Field_error"></span>
+</section>
+
+</section>
+
+
+{% if store_variables["enable_company_name"] %}
+<h3>{{ "accounts.register.form.headings.company_name" | t }}</h3>
+<section class="sc-mb-spacious">
+{%- assign field = form.fields["company_name"] %}
+<div class="SC-Field SC-Field-expand{% if field.errors != blank %} has-error{% endif %}{% if field.required? %} required{% endif %}">
+<label for="{{ field.id }}" class="SC-Field_label">{{ "accounts.register.form.labels.company_name" | t }}</label>
+<input type="text" name="{{ field.name }}" id="{{ field.id }}" value="{{ field.value }}" placeholder="{{ "accounts.register.form.labels.company_name" | t }}" class="SC-Field_input">
+<span class="SC-Field_error">{{ field.errors | try: "messages" }}</span>
+</div>
+</section>
+{% endif %}
+
+<h3>{{ "accounts.register.form.headings.address" | t }}</h3>
+{% render "shared/account/address_form", form: form, type: "billing" %}
+
+<section class="SC-Field SC-Field-expand">
+<label class="SC-Field_label">
+<label>County</label>
+
+<input class="SC-Field_input sc-one-whole" name="answers[a0xbc000001kY69AAE]" value="" required="">
+</label>
+<span class="SC-Field_error"></span>
+</section>
+
+{% render "account/shared/forms/campaign", form: form, context: "new" %}
+
+<div class="sc-mb-base">
+<input type="submit" name="commit" value="{{ "accounts.register.form.submit" | t }}" class="SC-Button SC-Button-primary SC-Button-expanded-up-to-small" data-disable-with="{{ "accounts.register.form.submit" | t }}" id="submit-button">
+</div>
+
+{%- endform %}
+
+{%- endif %}
+
+{% assign custom_form = all_custom_forms['a0zbc000001bdkzAAA'] %}
+{% render "shared/account/custom_form", form: custom_form %}
+
+<p>Country Variable: {{ registration_default_country }}</p>
+
+<script>
+(function() {
+'use strict';
+
+document.addEventListener('DOMContentLoaded', function() {
+
+{%- assign store_path = current_store.path %}
+
+const storePath = "{{ store_path }}";
+const formAction = "/" + storePath + "/form_submission";
+
+const registrationForm = document.getElementById('registration-form');
+const customForm = document.querySelector('form[action="' + formAction + '"]');
+const customFormSubmitBtn = customForm ? customForm.querySelector('input[type="submit"]') : null;
+
+console.log('Store path:', storePath);
+console.log('Form action:', formAction);
+console.log('Registration form found:', !!registrationForm);
+console.log('Custom form found:', !!customForm);
+
+
+if (!registrationForm || !customForm || !customFormSubmitBtn) {
+console.error('Required forms or buttons not found');
+return;
+}
+
+// Hide the custom form's submit button
+customFormSubmitBtn.style.display = 'none';
+
+// Auto-populate hidden fields
+setupAutoPopulation();
+
+// === Phone number auto-formatting ===
+const phoneInput = registrationForm.querySelector('input[name="phone"]');
+if (phoneInput) {
+phoneInput.addEventListener('input', (e) => {
+let value = e.target.value.replace(/\D/g, '').substring(0, 10);
+const area = value.substring(0, 3);
+const middle = value.substring(3, 6);
+const last = value.substring(6, 10);
+
+if (value.length > 6) e.target.value = `(${area}) ${middle}-${last}`;
+else if (value.length > 3) e.target.value = `(${area}) ${middle}`;
+else if (value.length > 0) e.target.value = `(${area}`;
+});
+}
+
+// === Default Country for Registration ===
+const defaultCountryValue = "US";
+const countrySelect = registrationForm.querySelector('select[name="billing_country"]');
+if (countrySelect && !countrySelect.value) {
+countrySelect.value = defaultCountryValue;
+}
+
+// Flag to track if we've already sent the custom form
+let customFormSent = false;
+
+// When registration form is submitted, also submit custom form in background
+registrationForm.addEventListener('submit', function(e) {
+console.log('Registration form submit event triggered');
+
+// Only send custom form once
+if (!customFormSent) {
+customFormSent = true;
+
+// Submit custom form data via fetch (fire and forget)
+const customFormData = new FormData(customForm);
+
+// Log what we're sending
+// console.log('Sending custom form data...');
+for (let [key, value] of customFormData.entries()) {
+console.log(key + ': ' + value);
+}
+
+fetch(customForm.action, {
+method: 'POST',
+body: customFormData,
+credentials: 'same-origin',
+keepalive: true
+}).then(response => {
+console.log('Custom form response:', response.status);
+}).catch(err => {
+console.log('Custom form submission error:', err);
+});
+}
+
+// Allow registration form to submit normally
+// console.log('Allowing registration form to submit normally');
+});
+
+// Auto-populate hidden fields
+function setupAutoPopulation() {
+// Email field sync to a0xbc000001kYCbAAM
+const emailField = registrationForm.querySelector('input[type="email"]');
+const emailHiddenField = customForm.querySelector('input[name="answers[a0xbc000001kYCbAAM][answer]"]');
+
+// console.log('Email field found:', !!emailField);
+// console.log('Email hidden field found:', !!emailHiddenField);
+
+if (emailField && emailHiddenField) {
+const syncEmail = () => {
+emailHiddenField.value = emailField.value;
+console.log('Email synced:', emailField.value);
+};
+emailField.addEventListener('input', syncEmail);
+emailField.addEventListener('blur', syncEmail);
+}
+
+// Lastname field sync to a0xbc000001kYEDAA2
+const lastnameField = registrationForm.querySelector('input[name="lastname"]');
+const lastnameHiddenField = customForm.querySelector('input[name="answers[a0xbc000001kYEDAA2][answer]"]');
+
+// console.log('Lastname field found:', !!lastnameField);
+// console.log('Lastname hidden field found:', !!lastnameHiddenField);
+
+if (lastnameField && lastnameHiddenField) {
+const syncLastname = () => {
+lastnameHiddenField.value = lastnameField.value;
+console.log('Lastname synced:', lastnameField.value);
+};
+lastnameField.addEventListener('input', syncLastname);
+lastnameField.addEventListener('blur', syncLastname);
+}
+
+// Preferred Name field sync (a0xbc000001kY4XAAU)
+const preferredNameVisible = registrationForm.querySelector('input[name="answers[a0xbc000001kY4XAAU]"]');
+const preferredNameHidden = customForm.querySelector('input[name="answers[a0xbc000001kY4XAAU][answer]"]');
+
+// console.log('Preferred Name visible field found:', !!preferredNameVisible);
+// console.log('Preferred Name hidden field found:', !!preferredNameHidden);
+
+if (preferredNameVisible && preferredNameHidden) {
+const syncPreferredName = () => {
+preferredNameHidden.value = preferredNameVisible.value;
+console.log('Preferred Name synced:', preferredNameVisible.value);
+};
+preferredNameVisible.addEventListener('input', syncPreferredName);
+preferredNameVisible.addEventListener('blur', syncPreferredName);
+}
+
+// Date of Birth field sync (a0xbc000001kY9NAAU)
+const dobFieldVisible = registrationForm.querySelector('input[name="answers[a0xbc000001kY9NAAU]"]');
+const dobFieldHidden = customForm.querySelector('input[name="answers[a0xbc000001kY9NAAU][answer]"]');
+
+// console.log('DOB visible field found:', !!dobFieldVisible);
+// console.log('DOB hidden field found:', !!dobFieldHidden);
+
+if (dobFieldVisible && dobFieldHidden) {
+const syncDOB = () => {
+dobFieldHidden.value = dobFieldVisible.value;
+console.log('DOB synced:', dobFieldVisible.value);
+};
+dobFieldVisible.addEventListener('input', syncDOB);
+dobFieldVisible.addEventListener('change', syncDOB);
+}
+
+// Employer field sync (a0xbc000001kY7lAAE)
+const employerVisible = registrationForm.querySelector('input[name="answers[a0xbc000001kY7lAAE]"]');
+const employerHidden = customForm.querySelector('input[name="answers[a0xbc000001kY7lAAE][answer]"]');
+
+// console.log('Employer visible field found:', !!employerVisible);
+// console.log('Employer hidden field found:', !!employerHidden);
+
+if (employerVisible && employerHidden) {
+const syncEmployer = () => {
+employerHidden.value = employerVisible.value;
+console.log('Employer synced:', employerVisible.value);
+};
+employerVisible.addEventListener('input', syncEmployer);
+employerVisible.addEventListener('blur', syncEmployer);
+}
+
+// County field sync (a0xbc000001kY69AAE)
+const countyVisible = registrationForm.querySelector('input[name="answers[a0xbc000001kY69AAE]"]');
+const countyHidden = customForm.querySelector('input[name="answers[a0xbc000001kY69AAE][answer]"]');
+
+// console.log('County visible field found:', !!countyVisible);
+// console.log('County hidden field found:', !!countyHidden);
+
+if (countyVisible && countyHidden) {
+const syncCounty = () => {
+countyHidden.value = countyVisible.value;
+// console.log('County synced:', countyVisible.value);
+};
+countyVisible.addEventListener('input', syncCounty);
+countyVisible.addEventListener('blur', syncCounty);
+}
+}
+
+});
+
+})();
+</script>
